@@ -14,18 +14,21 @@
     .main-wrap {
         display: flex;
         justify-content: center;
-        margin: 50px;
+        margin: 30px;
     }
     .box img {
       height: 150px;
       width: 300px;
     }
-
+    .head-row {
+        background-color: antiquewhite;
+    }
 </style>
 <body>
    <div class="main-wrap">
     <table>
-        <tr>
+        <!-- Table Head Row -->
+        <tr class="head-row">
             <th>Template #</th>
             <th>Template Link</th>
             <th>Devices</th>
@@ -33,6 +36,7 @@
             <th>SERP Mobile Preview</th>
             <th>Description</th>
         </tr>
+        <!-- Table Body -->
         <tr>
             <td>47</td>
             <td>https://www.hotelfind.me/?ct=47</td>
