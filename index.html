@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Visual Template</title>
 </head>
 <style>
@@ -12,23 +16,29 @@
         padding: 20px;
     }
     .main-wrap {
-        display: flex;
-        justify-content: center;
-        margin: 30px;
+        margin: 50px;
     }
     .box img {
-      height: 150px;
-      width: 300px;
+      height: 100px;
+      width: 100px;
+    }
+    .box1:hover {
+        transform: scale(10);
+        align-items: center;
     }
     .head-row {
         background-color: antiquewhite;
     }
+    .cursor {
+  cursor: pointer;
+    }   
+    
 </style>
 <body>
-   <div class="main-wrap">
-    <table>
+   <div class="justify-content-center table-responsive main-wrap">
+    <table class="table">
         <!-- Table Head Row -->
-        <tr class="head-row">
+        <tr class="panel-heading">
             <th>Template #</th>
             <th>Template Link</th>
             <th>Devices</th>
@@ -43,7 +53,7 @@
             <td>All</td>
             <td>
                 <div class="box box1">
-                    <img src="./47-RS.png" alt="">
+                    <img src="./47-RS.png">
                 </div>
             </td>
             <td>
@@ -114,5 +124,14 @@
         </tr>
     </table>
    </div>
+   <script>
+    function openModal() {
+        document.getElementById("myModal").style.display = 'block';
+    }
+    
+    function closeModal() {
+        document.getElementById("myModal").style.display = 'none';
+    }
+   </script>
 </body>
 </html>
