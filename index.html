@@ -21,17 +21,30 @@
     .box img {
       height: 100px;
       width: 100px;
+      cursor: pointer;
     }
-    .box1:hover {
-        transform: scale(10);
+    #lightbox {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .8);
+        display: none;
+    }
+    #lightbox.active {
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
-    .head-row {
-        background-color: antiquewhite;
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        padding: 4px;
+        background-color: black;
+        border: 2px solid white;
     }
-    .cursor {
-  cursor: pointer;
-    }   
+ 
     
 </style>
 <body>
@@ -52,12 +65,12 @@
             <td>https://www.hotelfind.me/?ct=47</td>
             <td>All</td>
             <td>
-                <div class="box box1">
-                    <img src="./47-RS.png">
+                <div class="box text-center">
+                    <img src="./47-RS.png" onclick="openModal();currentSlide(1)" class="hover-shadow">
                 </div>
             </td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./47-SERP.png" alt="">
                 </div>
             </td>
@@ -67,12 +80,12 @@
             <td>https://www.hotelfind.me/?ct=113</td>
             <td>Mobile Only</td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./113-RS.png" alt="">
                 </div>
             </td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./113-SERP.png" alt="">
                 </div>
             </td>
@@ -82,12 +95,12 @@
             <td>https://www.hotelfind.me/?ct=123</td>
             <td>Mobile Only</td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./123-RS.png" alt="">
                 </div>
             </td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./123-SERP.png" alt="">
                 </div>
             </td>
@@ -97,12 +110,12 @@
             <td>https://www.hotelfind.me/?ct=130</td>
             <td>Mobile Only</td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./130-RS.png" alt="">
                 </div>
             </td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./130-SERP.png" alt="">
                 </div>
             </td>
@@ -112,26 +125,41 @@
             <td>https://www.hotelfind.me/?ct=131</td>
             <td>All</td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./131-RS.png" alt="">
                 </div>
             </td>
             <td>
-                <div class="box box1">
+                <div class="box text-center">
                     <img src="./131-SERP.png" alt="">
                 </div>
             </td>
         </tr>
     </table>
    </div>
+
    <script>
-    function openModal() {
-        document.getElementById("myModal").style.display = 'block';
-    }
-    
-    function closeModal() {
-        document.getElementById("myModal").style.display = 'none';
-    }
+   const lightbox = document.createElement('div')
+   lightbox.id = 'lightbox'
+   document.body.appendChild(lightbox)
+
+   const images = document.querySelectorAll('img')
+   images.forEach(image => {
+    image.addEventListener('click', e => {
+        lightbox.classList.add('active')
+        const img = document.createElement('img')
+        img.src = image.src
+        while (lightbox.firstChild) {
+            lightbox.removeChild(lightbox.firstChild)
+        }
+        lightbox.appendChild(img)
+    })
+   })
+   lightbox.addEventListener('click', e => {
+    if (e.target !== e.currentTarget) return
+    lightbox.classList.remove('active')
+   })
    </script>
+
 </body>
 </html>
